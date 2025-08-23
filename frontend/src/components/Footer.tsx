@@ -1,30 +1,20 @@
 import { useState } from "react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Wheat, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  Wheat,
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
   Linkedin,
-  ArrowRight,
-  CheckCircle
   ArrowRight,
   CheckCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [popup, setPopup] = useState<{ message: string; show: boolean }>({
-    message: "",
-    show: false,
-  });
-
   const [email, setEmail] = useState("");
   const [popup, setPopup] = useState<{ message: string; show: boolean }>({
     message: "",
@@ -50,27 +40,7 @@ const Footer = () => {
     { name: "Our Mission", href: "/mission" },
     { name: "Careers", href: "/careers" },
     { name: "Press Kit", href: "/press" }
-    { name: "About Us", href: "/about" },
-    { name: "Our Mission", href: "/mission" },
-    { name: "Careers", href: "/careers" },
-    { name: "Press Kit", href: "/press" }
   ];
-
-  const handleSubscribe = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) {
-      setPopup({ message: "Please enter a valid email address.", show: true });
-      setTimeout(() => setPopup({ message: "", show: false }), 3000);
-      return;
-    }
-
-    setPopup({
-      message: `Thank you for subscribing, ${email}! You'll stay updated with Kisaan Mitra.`,
-      show: true,
-    });
-    setEmail(""); // Clear input
-    setTimeout(() => setPopup({ message: "", show: false }), 4000);
-  };
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
