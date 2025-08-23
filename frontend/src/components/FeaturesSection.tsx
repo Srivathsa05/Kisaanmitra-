@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
 import { 
   Wheat, Tractor, TrendingUp, CreditCard, Users, Leaf, Shield,
   ArrowRight, Zap, Target, Globe
@@ -48,7 +47,7 @@ const FeaturesSection = () => {
       description: "Connect with fellow farmers, share knowledge, and learn from agricultural experts.",
       benefits: ["Discussion forums", "Expert consultation", "Video tutorials", "Local language support"],
       gradient: "from-accent to-primary",
-      path: "/community" // ✅ Correct routing
+      path: "/community"
     },
     {
       icon: Leaf,
