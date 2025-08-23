@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Wheat, 
@@ -12,19 +11,10 @@ import {
   Linkedin,
   ArrowRight,
   CheckCircle
-  ArrowRight,
-  CheckCircle
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [popup, setPopup] = useState<{ message: string; show: boolean }>({
-    message: "",
-    show: false,
-  });
-
   const [email, setEmail] = useState("");
   const [popup, setPopup] = useState<{ message: string; show: boolean }>({
     message: "",
@@ -40,7 +30,7 @@ const Footer = () => {
 
   const support = [
     { name: "Help Center", href: "/support/help" },
-    { name: "Community Forum", href: "/community-hub" },
+    { name: "Community Forum", href: "/community/discussions" },
     { name: "Contact Support", href: "/support/contact" },
     { name: "Documentation", href: "/support/docs" }
   ];
@@ -50,27 +40,7 @@ const Footer = () => {
     { name: "Our Mission", href: "/mission" },
     { name: "Careers", href: "/careers" },
     { name: "Press Kit", href: "/press" }
-    { name: "About Us", href: "/about" },
-    { name: "Our Mission", href: "/mission" },
-    { name: "Careers", href: "/careers" },
-    { name: "Press Kit", href: "/press" }
   ];
-
-  const handleSubscribe = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) {
-      setPopup({ message: "Please enter a valid email address.", show: true });
-      setTimeout(() => setPopup({ message: "", show: false }), 3000);
-      return;
-    }
-
-    setPopup({
-      message: `Thank you for subscribing, ${email}! You'll stay updated with Kisaan Mitra.`,
-      show: true,
-    });
-    setEmail(""); // Clear input
-    setTimeout(() => setPopup({ message: "", show: false }), 4000);
-  };
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,8 +69,6 @@ const Footer = () => {
               Get the latest market insights, farming tips, and platform updates directly in your inbox.
             </p>
           </div>
-
-          {/* Input and Subscribe Button */}
 
           {/* Input and Subscribe Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
@@ -137,38 +105,15 @@ const Footer = () => {
               cutting-edge technology, and sustainable agricultural practices.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="https://www.facebook.com/yourpage"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com/yourpage"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/yourpage"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/yourpage"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
+                <a 
+                  key={index}
+                  href="#"
+                  className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -212,15 +157,15 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary-foreground/60" />
-                <span className="text-primary-foreground/80">support@KisaanMitra.com</span>
+                <span className="text-primary-foreground/80">support@agriconnect.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary-foreground/60" />
-                <span className="text-primary-foreground/80">+080 0404 2706</span>
+                <span className="text-primary-foreground/80">+91 98765 43210</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-primary-foreground/60" />
-                <span className="text-primary-foreground/80">Bengaluru, Karnatak, India</span>
+                <span className="text-primary-foreground/80">New Delhi, India</span>
               </div>
             </div>
           </div>
@@ -232,7 +177,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-primary-foreground/60 text-sm">
-              © 2024 KisaanMitra. All rights reserved. Empowering farmers across India.
+              © 2024 AgriConnect. All rights reserved. Empowering farmers across India.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
