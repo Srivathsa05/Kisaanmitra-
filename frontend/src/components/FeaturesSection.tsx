@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
 import { 
   Wheat, Tractor, TrendingUp, CreditCard, Users, Leaf, Shield,
   ArrowRight, Zap, Target, Globe
